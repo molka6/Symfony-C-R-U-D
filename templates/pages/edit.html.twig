@@ -1,0 +1,21 @@
+
+{% extends 'base.html.twig' %}
+{% block body%}
+
+
+{{ form_start(form)}}
+
+<div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"> {{ form_row(form.Name )}} </label>
+</div>
+      {{ form_widget(form)}}
+      <button> sauvgarder </button>
+      
+ {{ form_end(form)}}
+
+
+
+
+
+{% endblock %}
+
