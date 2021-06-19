@@ -1,15 +1,22 @@
 
+
 {% extends 'base.html.twig' %}
 {% block body%}
 
-
+<div class="container mt-2> 
+<h1> add client </h1> 
 {{ form_start(form)}}
+<div class ="row"> 
+        <div class="col-md-2"> {{ form_row(form.Name )}} </div>
+         <div class="col-md-2"> {{ form_row(form.Email )}} </div>
+          <div class="col-md-2"> {{ form_row(form.Address )}} </div>
+           <div class="col-md-2"> {{ form_row(form.Phone )}} </div>
 
-<div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label"> {{ form_row(form.Name )}} </label>
+       
+                                
 </div>
-      {{ form_widget(form)}}
-      <button> sauvgarder </button>
+ {{ form_widget(form)}}
+<button class="btn btn-primary"> sauvgarder </button>
       
  {{ form_end(form)}}
 
@@ -17,5 +24,6 @@
 
 
 
-{% endblock %}
 
+
+{% endblock %}

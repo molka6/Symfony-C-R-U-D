@@ -10,8 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\ClientType;
 use Doctrine\ORM\EntityManagerInterface;
 class HomeController extends AbstractController
-
-
 {
 /**
  * @var Environment
@@ -89,7 +87,6 @@ public function edit(Client $client , Request $request): Response
     public function delete(Client $client)
     {
       $this -> em -> remove ($client);
-
       $this -> em -> flush() ; 
       return $this -> redirectToRoute('home');
     }
