@@ -12,8 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\ManagerType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType; 
-use Symfony\Component\Form\Extension\Core\Type\SubmitType; 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 class CrController extends AbstractController
 {
 /**
@@ -63,9 +64,7 @@ public function __construct(ManagerRepository $repository , Environment $twig,En
     );
     }
 
-    // -------------------------------------------------------------------------------------------------------------------------
-
-/**
+    /**
      * @Route("/new", name="new")
      */
     public function new (Request $request): Response
@@ -106,6 +105,8 @@ public function __construct(ManagerRepository $repository , Environment $twig,En
 
     ]);
     }
+// --------------------------------------------------------------------------------
+
 // --------------------------------------------------------------------------------
 
 /**

@@ -76,7 +76,7 @@ class Manager
         return $this->Name;
     }
 
-    public function setName(string $Name): self
+    public function setName($Name): self
     {
         $this->Name = $Name;
 
@@ -88,7 +88,7 @@ class Manager
         return $this->Age;
     }
 
-    public function setAge(string $Age): self
+    public function setAge($Age): self
     {
         $this->Age = $Age;
 
@@ -100,7 +100,7 @@ class Manager
         return $this->Code;
     }
 
-    public function setCode(?int $Code): self
+    public function setCode($Code): self
     {
         $this->Code = $Code;
 
