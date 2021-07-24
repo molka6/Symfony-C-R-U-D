@@ -37,14 +37,31 @@ class Manager
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Range(
-     *  min=10 ,
-     *  max=20, 
-     * )
+    
      */
     private $Code;
 
 
+
+    /**
+     * @ORM\Column( )
+     */
+    private $image;
+
+
+
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
 
 
@@ -89,6 +106,7 @@ class Manager
 
         return $this;
     }
+
 
 
 }

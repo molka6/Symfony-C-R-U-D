@@ -11,7 +11,9 @@ use App\Entity\Manager;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ManagerType;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType; 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType; 
 class CrController extends AbstractController
 {
 /**
@@ -71,9 +73,25 @@ public function __construct(ManagerRepository $repository , Environment $twig,En
        
         $client= new Manager();
         $form=$this -> createForm (  ManagerType :: class , $client);
+
+        $form = $this->createFormBuilder($client)
+            ->add('Name', TextType::class)
+            ->add('Age', TextType::class)
+            ->add('Code', TextType::class)
+            ->add('image', FileType::class, array('label' => 'Photo (png, jpeg)'))
+            ->add('save', SubmitType::class, array('label' => 'Submit'))
+            ->getForm(); 
+
+
         $form -> handleRequest($request); 
         if ($form -> isSubmitted () && $form -> isValid() )
                     {
+
+            $file = $client->getImage();
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('image_directory'), $fileName);
+            $client->setImage($fileName); 
                     // informe Doctrine que l’on veut ajouter cet objet dans la base de donnees. 
                     $this -> em -> persist($client);
                     //permet d’executer la requ ´ ete et d’envoyer tout ce qui a eté  persist avant a la base de donnees.
@@ -90,7 +108,6 @@ public function __construct(ManagerRepository $repository , Environment $twig,En
     }
 // --------------------------------------------------------------------------------
 
-
 /**
      * @Route("/delete/{id}", name="delete"  )
      */
@@ -100,5 +117,7 @@ public function __construct(ManagerRepository $repository , Environment $twig,En
       $this -> em -> flush() ; 
       return $this -> redirectToRoute('home');
     }
+
+
 }
 

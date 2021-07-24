@@ -15,6 +15,7 @@ class ManagerType extends AbstractType
             ->add('Name')
             ->add('Age')
             ->add('Code')
+            ->add('image')
         ;
     }
 
