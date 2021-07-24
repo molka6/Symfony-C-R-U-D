@@ -29,10 +29,9 @@
 
 
 						<th>Name</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Phone</th>
-						<th>Actions</th>
+						<th>Age</th>
+						<th>Code</th>
+					
 
 
 
@@ -49,25 +48,13 @@
 							</span>
 						</td>
 
-
-
 						<td>{{ client.Name }} </td>
-
-
-						<td>{{client.Email }}</td>
-
-
-						<td>{{ client.Address }}</td>
-
-
-
-						<td>{{ client.Phone}}</td>
-
-
+						<td>{{ client.Age }} </td>
+						<td>{{ client.Code}} </td>
 
 						<td>
 							
-					     	<a href="{{ path('edit' , { id : client.id })}}"  > 
+					     	<a href="{{ path('editManager' , { id : client.id })}}"  > 
 							 <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
 							</a>
 
@@ -75,6 +62,13 @@
 							<a href="{{ path('delete' , { id : client.id })}}" >
 							<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
 							</a>
+
+
+
+
+
+
+
 						</td>
 
 

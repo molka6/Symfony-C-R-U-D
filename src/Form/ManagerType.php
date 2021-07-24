@@ -2,27 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Client;
+use App\Entity\Manager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ClientType extends AbstractType
+class ManagerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('Name')
-            ->add('Email')
-            ->add('Address')
-            ->add('Phone')
+            ->add('Age')
+            ->add('Code')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Client::class,
+            'data_class' => Manager::class,
         ]);
     }
 }

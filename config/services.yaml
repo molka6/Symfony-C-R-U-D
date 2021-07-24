@@ -25,9 +25,4 @@ services:
     # please note that last definitions always *replace* previous ones
    
    
-   # twig
-    App\controller\HomeController:
-        tags: ['controller.service_arguments']
-        arguments:
-            $twig: '@twig'
-   
+  
