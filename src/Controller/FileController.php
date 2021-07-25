@@ -43,6 +43,17 @@ class FileController extends AbstractController
         $file->setImage($imageName);
 
 
+
+
+
+
+        $file->setNom($request->get('nom'));
+
+
+
+
+
+
         $em = $this->getDoctrine()->getManager();
 
 
@@ -63,6 +74,12 @@ class FileController extends AbstractController
         );
         return new JsonResponse($response, Response::HTTP_CREATED);
     }
+
+
+
+
+
+
 
 
 

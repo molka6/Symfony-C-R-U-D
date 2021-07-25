@@ -31,6 +31,11 @@ class File
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +49,18 @@ class File
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom($nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }
